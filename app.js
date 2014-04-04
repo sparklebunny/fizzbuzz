@@ -1,20 +1,22 @@
 $(document).ready(function(){
 
+	$("#myNumber").keypress(function(event) {
+			if (event.which == 13) {
+				executeTextbox();
+			}
+		})
 
-	$("#enterButton").click(function(button) {
-
+	var executeTextbox = function () {
 		var inputValue = +$("#myNumber").val();
 		$("#display").html("");
-
 
 		for (var i = 1; i <= inputValue; i++) {
 			var result = checkNumber(i);
 			$("#display").append("<p>" + result + "</p>");
-
 		}	
-	});
+	};
 
-
+	$("#enterButton").click(executeTextbox); 
 
 	$("#myNumber").text(function() {
 		if($("#myNumber").val() == " "); {
